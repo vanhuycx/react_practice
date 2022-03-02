@@ -2,20 +2,28 @@ import React,{ useState,useEffect } from 'react'
 
 
 const App = () => {
-  const [cTime, setcTime] = useState(new Date().toLocaleTimeString())
+  const getCurrentTime =() => {
+    return new Date().toLocaleTimeString()
+  }
+  const [textValue, setTextValue] = useState('Hello World')
+  const [showTextValue, setShowTextValue] = useState(false)
 
-useEffect(() => {
-  setTimeout(() => {
-    setcTime(new Date().toLocaleTimeString())
-
-
-  }, 1000);
-}, [cTime])
+  useEffect(() => {
+    if (showTextValue) {
+      setTextValue('Hello World')
+    } else {
+      setTextValue('')
+    }
+    
+  }, [showTextValue])
+  
 
 
   return (
     <>
-    <h1>The current time is {cTime} </h1>
+    <button className="clichHere" onClick={()=>setShowTextValue(!showTextValue)}>click here</button>
+
+    <input type="text" value={textValue} />
 
     </>
 
