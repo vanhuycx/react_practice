@@ -1,22 +1,24 @@
-import React from "react";
-import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
-const headers = {'Access-Control-Allow-Origin':'*'}
-const baseUrl = 'https://api.alternative.me/'
 
-const createRequest = (url)=> ({url,headers:headers});
-
+const baseUrl = 'https://api.alternative.me/fng/'
 
 export const fearGreedApi = createApi({
-    reducerPath: 'cryptoApi',
+    reducerPath:'fearGreedApi',
     baseQuery: fetchBaseQuery({baseUrl:baseUrl}),
-    endpoints: (builder)=>({
-        getFearGreedApi: builder.query({
-            query: () => createRequest(`/fng?limit=10&date_format=us`)
+    endpoints: (builder)=> ({
+        getFearGreedIndex: builder.query({
+            query:({limit})=> ({url:`?limit=${limit}`})
         })
-    })
+    }),
+    //   prepareHeaders: (headers, { getState }) => {
+    //     headers.set('Access-Control-Allow-Origin', '*')
+    //     return headers
+    // }
+  
 })
 
+
 export const {
-    useGetFearGreedApiQuery,
-} = fearGreedApi;
+    useGetFearGreedIndexQuery,
+} = fearGreedApi

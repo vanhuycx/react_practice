@@ -1,30 +1,13 @@
 import React,{ useState,useEffect } from 'react'
-
+import { useGetFearGreedIndexQuery } from "./api";
 
 const App = () => {
-  const getCurrentTime =() => {
-    return new Date().toLocaleTimeString()
-  }
-  const [textValue, setTextValue] = useState('Hello World')
-  const [showTextValue, setShowTextValue] = useState(false)
 
-  useEffect(() => {
-    if (showTextValue) {
-      setTextValue('Hello World')
-    } else {
-      setTextValue('')
-    }
-    
-  }, [showTextValue])
-  
-
-
+  const {data:fearGreedIndex} = useGetFearGreedIndexQuery({limit:10})
+  console.log(fearGreedIndex)
   return (
     <>
-    <button className="clichHere" onClick={()=>setShowTextValue(!showTextValue)}>click here</button>
-
-    <input type="text" value={textValue} />
-
+    
     </>
 
   ) 
