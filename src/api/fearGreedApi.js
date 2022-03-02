@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
-const baseUrl = 'https://api.alternative.me/fng/'
+const baseUrl = 'https://api.alternative.me/ng'
 
 export const fearGreedApi = createApi({
     reducerPath:'fearGreedApi',

@@ -1,10 +1,14 @@
 import React,{ useState,useEffect } from 'react'
-import { useGetFearGreedIndexQuery } from "./api";
+import { useGetFearGreedIndexQuery } from "./api/fearGreedApi";
+
 
 const App = () => {
+  // const {data:fearGreed} = useGetFearGreedIndexQuery({limit:10})
+  // console.log(fearGreed)
+  // const {data:newsData} = useGetNewsQuery({searchString:'cryptocurrency'})
+  // console.log(newsData)
 
-  const {data:fearGreedIndex} = useGetFearGreedIndexQuery({limit:10})
-  console.log(fearGreedIndex)
+
   return (
     <>
     
