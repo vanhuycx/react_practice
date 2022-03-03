@@ -7,13 +7,6 @@ const App = () => {
   const {data:newsData} = useGetNewsQuery({searchTerm:'crypto'})
   console.log(newsData)
 
-
-  // const {data:fearGreed} = useGetFearGreedIndexQuery({limit:10})
-  // console.log(fearGreed)
-  // const {data:newsData} = useGetNewsQuery({searchString:'cryptocurrency'})
-  // console.log(newsData)
-
-
   return (
     <>
     
