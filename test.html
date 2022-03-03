@@ -7,27 +7,48 @@
     <title>Document</title>
 
     <style>   
-        a {
+        /* a {
             text-decoration: none;
         }
 
         a.chosenText:hover {
             color:red;   
-        }
+        } */
 
     </style>
-    <script>
-        
-       
-    </script>
+  
 </head>
 <body>
+<div>
+  
+    <a href="" class='chosenText' id="chosenText">Deleted text</a>
 
-<a href="" class="chosenText">Deleted text</a>
 
 
-<a href="" class="chosenText1">Deleted text</a>
+</div>
 
+<script>
+
+    chosenText = document.getElementById('chosenText')
+
+        chosenText.addEventListener("mouseover", (event)=>{
+            
+        let parent = chosenText.parentNode;
+        let wrapper = document.createElement('del')
+        parent.replaceChild(wrapper,chosenText)
+        wrapper.appendChild(chosenText)
+
+        });
+
+        chosenText.addEventListener("mouseout", (event)=>{
+            const parent = chosenText.parentNode
+            parent.replaceWith(...parent.childNodes);
+
+        });
     
+
+            
+</script>
 </body>
 </html>
+
