@@ -19,32 +19,41 @@
   
 </head>
 <body>
-<div>
+<div id='chosenText'>
   
-    <a href="" class='chosenText' id="chosenText">Deleted text</a>
-
+    <a href="" >Deleted text</a>
+    <a href="" >Deleted text</a>
+    <a href="" >Deleted text</a>
+    <a href="" >Deleted text</a>
+    <p>dawdaw</p>
 
 
 </div>
 
 <script>
 
-    chosenText = document.getElementById('chosenText')
-
+    const delText = (chosenText) => {
         chosenText.addEventListener("mouseover", (event)=>{
-            
-        let parent = chosenText.parentNode;
-        let wrapper = document.createElement('del')
-        parent.replaceChild(wrapper,chosenText)
-        wrapper.appendChild(chosenText)
+            let parent = chosenText.parentNode;
+            let wrapper = document.createElement('del')
+            parent.replaceChild(wrapper,chosenText)
+            wrapper.appendChild(chosenText)
+            });
+    
+            chosenText.addEventListener("mouseout", (event)=>{
+                const parent = chosenText.parentNode
+                parent.replaceWith(...parent.childNodes);
+    
+            });
 
-        });
+    }
 
-        chosenText.addEventListener("mouseout", (event)=>{
-            const parent = chosenText.parentNode
-            parent.replaceWith(...parent.childNodes);
+    var navGroup = document.getElementById('chosenText')
 
-        });
+    for (var i = 0;i <navGroup.children.length;i++) {
+        delText(navGroup.children[i])
+    }
+
     
 
             
