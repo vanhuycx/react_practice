@@ -5,54 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./src/App.css">
 
     <style>   
-        /* a {
-            text-decoration: none;
-        }
+    /* Allow including padding and border in actual width and height of an element */
+    * {
+        box-sizing: border-box;
+    }
 
-        a.chosenText:hover {
-            color:red;   
-        } */
+    a.chosenText:hover {
+        text-decoration-line: line-through;
+        
+    }
+
 
     </style>
   
 </head>
 <body>
-<div id='chosenText'>
+<div>
   
-    <a href="" >Deleted text</a>
-    <a href="" >Deleted text</a>
-    <a href="" >Deleted text</a>
-    <a href="" >Deleted text</a>
-    <p>dawdaw</p>
+    <a class="chosenText" href="" >Deleted text</a>
+    
+    <a class="chosenText" href="" >Deleted text</a>
+    
+    <a class="chosenText" href="" >Deleted text</a>
+    
+    <a class="chosenText" href="" >Deleted text</a>
+
 
 
 </div>
 
 <script>
 
-    const delText = (chosenText) => {
-        chosenText.addEventListener("mouseover", (event)=>{
-            let parent = chosenText.parentNode;
-            let wrapper = document.createElement('del')
-            parent.replaceChild(wrapper,chosenText)
-            wrapper.appendChild(chosenText)
-            });
+    // const delText = (chosenText) => {
+    //     chosenText.addEventListener("mouseover", (event)=>{
+    //         let parent = chosenText.parentNode;
+    //         let wrapper = document.createElement('del')
+    //         parent.replaceChild(wrapper,chosenText)
+    //         wrapper.appendChild(chosenText)
+    //         });
     
-            chosenText.addEventListener("mouseout", (event)=>{
-                const parent = chosenText.parentNode
-                parent.replaceWith(...parent.childNodes);
+    //         chosenText.addEventListener("mouseout", (event)=>{
+    //             const parent = chosenText.parentNode
+    //             parent.replaceWith(...parent.childNodes);
     
-            });
+    //         });
 
-    }
+    // }
 
-    var navGroup = document.getElementById('chosenText')
+    // var navGroup = document.getElementById('chosenText')
 
-    for (var i = 0;i <navGroup.children.length;i++) {
-        delText(navGroup.children[i])
-    }
+    // for (var i = 0;i <navGroup.children.length;i++) {
+    //     delText(navGroup.children[i])
+    // }
 
     
 
