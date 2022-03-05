@@ -1,70 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./src/App.css">
+<style>
+.container {
+  display: flex;
+}
 
-    <style>   
-    /* Allow including padding and border in actual width and height of an element */
-    * {
-        box-sizing: border-box;
-    }
+.black-box {
+  border: 2px solid black;
+    max-width: 100%;
+  /* margin: 30px; */
+  /* left: 50px;
+  top: 50px; */
+}
 
-    a.chosenText:hover {
-        text-decoration-line: line-through;
-        
-    }
+.green-box {
+    border: 2px solid green;
+}
+
+.black-box2 {
+  position: absolute;
+  border: 2px solid black;
+    max-width: 100%;
+  left: 0px;
+  top: 110px;
+
+}
+
+.black-box3 {
+  position: absolute;
+  border: 2px solid black;
+    max-width: 100%;
+  left: 0px;
+  top: 115px;
 
 
-    </style>
-  
+}
+
+</style>
 </head>
 <body>
-<div>
-  
-    <a class="chosenText" href="" >Deleted text</a>
-    
-    <a class="chosenText" href="" >Deleted text</a>
-    
-    <a class="chosenText" href="" >Deleted text</a>
-    
-    <a class="chosenText" href="" >Deleted text</a>
 
+<h1>Z-index Example</h1>
 
+<p>An element with greater stack order is always above an element with a lower stack order.</p>
 
+<div class="container">
+  <div class="black-box">Black box (z-index: 1)</div>
+
+  <div class="green-box">Black box (z-index: 2)</div>
 </div>
 
-<script>
+<div style="z-index: 1;" class="black-box2">Black box (z-index: 1)</div>
 
-    // const delText = (chosenText) => {
-    //     chosenText.addEventListener("mouseover", (event)=>{
-    //         let parent = chosenText.parentNode;
-    //         let wrapper = document.createElement('del')
-    //         parent.replaceChild(wrapper,chosenText)
-    //         wrapper.appendChild(chosenText)
-    //         });
-    
-    //         chosenText.addEventListener("mouseout", (event)=>{
-    //             const parent = chosenText.parentNode
-    //             parent.replaceWith(...parent.childNodes);
-    
-    //         });
+<div style="z-index: 2;" class="black-box3">Black box (z-index: 1)</div>
 
-    // }
-
-    // var navGroup = document.getElementById('chosenText')
-
-    // for (var i = 0;i <navGroup.children.length;i++) {
-    //     delText(navGroup.children[i])
-    // }
-
-    
-
-            
-</script>
 </body>
 </html>
+
 
