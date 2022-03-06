@@ -50,6 +50,7 @@
 .app-container {
   display: flex;
   flex-direction: column;
+  border: yellow solid;
 }
 .header {
   padding: 1em;
@@ -80,6 +81,7 @@
 }
 .content {
   flex: 65%;
+  margin: 0.75em;
 }
 
 .aside {
@@ -87,7 +89,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.2em;
+  padding: 0.25em;
   margin: 0.75em;
   text-align: center;
   color: var(--font-color);
@@ -95,17 +97,20 @@
 }
 
 .footer {
+  text-align: center;
   padding: 2em;
   color: var(--font-color);
   background-color: var(--dark-blue-background-color);
 }
 
+/* Tablet mode */
 @media screen and (max-width: 767px) {
   .main {
     flex-direction: column;
   }
 }
 
+/* Phone mode */
 @media screen and (max-width: 600px) {
   .section {
     flex-direction: column;
