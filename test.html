@@ -2,86 +2,62 @@
 <html>
 <head>
 <style>
+  :root {
+    --blue: #1e90ff;
+    --white: #ffffff; 
+  }
   * {
     margin: 0;
     box-sizing: border-box;
   }
-  .website {
-    display: flex;
-    flex-direction: column;
-    border: 0.5em solid black;
-    padding: 0.5em;
-  }
 
-  .header {
+
+  .flex-container {
     display: flex;
     justify-content: center;
-    border: 0.5em solid white;
-    background-color: rgb(211, 208, 208);
-    padding: 1em;
+    border: 0.5em solid black;
   }
 
-  .navbar {
-    display: flex;
-    justify-content: space-evenly;
-    border: 0.5em solid white;
-    background-color: rgb(211, 208, 208);
-    padding: 1em;
-
-  }
-  
   .content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between ;
-    height: 300px;
-    
   }
+
   .content div {
-    text-align: center;
-    width: 33.33%;
     background-color: rgb(211, 208, 208);
     border: 0.5em solid white;
   }
-
-  .footer {
-    display: flex;
-    justify-content: space-around;
-    border: 0.5em solid white;
-    background-color: rgb(211, 208, 208);
-    padding: 1em;
-
-  }
-
 </style>
 </head>
 <body>
 
-<div class="website">
-  <div class="header"> 
-    <h2>Header</h2>
-  </div>
+<div class="flex-container">
 
-  <div class="navbar"> 
-    <a href="">Home</a>
-    <a href="">Home</a>
-    <a href="">Home</a>
-    <a href="">Home</a>
-  </div>
 
   <div class="content">
-    <div>Content</div>
-    <div>Main Content</div>
-    <div>Content</div>
+    <div>ContentA</div>
+    <div><p> Content</p></div>
+    <div>ContenBt</div>
+    <div>ContentA</div>
+    <div><p>Main Ment</p></div>
+    <div>ContentA</div>
+    <div><p>Main Ment</p></div>
+    <div>ContentA</div>
+    <div><p>Main Ment</p></div>
+
   </div>
 
-  <div class="footer">
-    <div>Footer</div>
-  </div>
 
 </div>
 
 
 
+
+<script>
+  r = document.querySelector(':root')
+  console.log(getComputedStyle(r).getPropertyValue('--blue'))
+</script>
 
 </body>
 </html>
