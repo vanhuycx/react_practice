@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from './api/store'
+import { BrowserRouter } from "react-router-dom";
 import {
   LineController, LineElement,
   PointElement,
@@ -30,9 +31,11 @@ ChartJS.register(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-    <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+      <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

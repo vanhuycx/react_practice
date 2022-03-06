@@ -1,10 +1,15 @@
 import React,{ useState,useEffect } from 'react'
 import './App.css'
-
-
+import {Routes,Route,Link } from "react-router-dom";
+import City from "./components/City";
+import Flight from './components/Flight'
+import Island from './components/Island'
+import Food from './components/Food'
+import NotFound from "./components/NotFound";
 const App = () => {
   return (
     <>
+
 
     <div className="app-container">
       <div className="header">
@@ -15,16 +20,31 @@ const App = () => {
         <div className="section">
 
           <div className="menu">
-            <a href="goog" target='_blank'>The Flight</a>
-            <a href="goog" target='_blank'>The City</a>
-            <a href="goog" target='_blank'>The Island</a>
-            <a href="goog" target='_blank'>The Food</a>
+            <Link to='/flight'>The Flight</Link>
+            <Link to='/city'>The City</Link>
+            <Link to='/island'>The Island</Link>
+            <Link to='/food'>The Food</Link>
+            
           </div>
 
           <div className="content">
-            <h1>The City</h1>
-            <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>       
-          </div>     
+            <Routes>
+            <Route path='/' element={<Flight />}/>
+              <Route path='/flight' element={<Flight />}/>
+
+              <Route path='/city' element={<City />}/>
+
+              <Route path='/island' element={<Island />}/>
+
+              <Route path='/food' element={<Food />}/>
+              <Route path='*' element={<NotFound />}/>
+   
+            </Routes>
+
+
+          </div>
+
+
         </div>
 
 
