@@ -50,11 +50,9 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  border: 3px solid red;
-  height: 100vh;
 }
 .header {
-  padding: 2em;
+  padding: 1em;
   color: var(--font-color);
   background-color: var(--purple-background-color);
 }
@@ -65,27 +63,34 @@
 
 .section {
   display: flex;
-  flex: 80%;
+  flex: 78%;
 }
 .menu {
   display: flex;
   flex-direction: column;
-  flex: 30%;
+  flex: 35%;
+  margin: 0.75em;
 }
 .menu a {
   background-color: var(--light-blue-background-color);
-  margin: 0.5em;
   padding: 0.5em;
+  margin: 0.25em;
   text-decoration: none;
-  color:var(--font-color)
+  color: var(--font-color);
 }
 .content {
-  flex: 70%;
+  flex: 65%;
 }
 
 .aside {
-  flex: 20%;
-  color:var(--font-color);
+  flex: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.2em;
+  margin: 0.75em;
+  text-align: center;
+  color: var(--font-color);
   background-color: var(--light-blue-background-color);
 }
 
@@ -93,4 +98,16 @@
   padding: 2em;
   color: var(--font-color);
   background-color: var(--dark-blue-background-color);
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    flex-direction: column;
+  }
 }

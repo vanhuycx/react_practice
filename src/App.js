@@ -8,7 +8,7 @@ const App = () => {
 
     <div className="app-container">
       <div className="header">
-        Chania
+        <h1>Chania</h1>
       </div>
 
       <div className="main">
@@ -22,7 +22,7 @@ const App = () => {
           </div>
 
           <div className="content">
-            <h3>The City</h3>
+            <h1>The City</h1>
             <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>       
           </div>     
         </div>
@@ -30,7 +30,7 @@ const App = () => {
 
         <div className="aside">
           <div>
-            <h3>What</h3>
+            <h3>What?</h3>
             <p>Chania is a city on the island of Crete.</p>
           </div>
           <div>
