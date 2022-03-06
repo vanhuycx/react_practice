@@ -1,11 +1,23 @@
 import React,{ useState,useEffect } from 'react'
 import './App.css'
-import {Routes,Route,Link } from "react-router-dom";
+import {Routes,Route,Link,useRoutes } from "react-router-dom";
 import City from "./components/City";
 import Flight from './components/Flight'
 import Island from './components/Island'
 import Food from './components/Food'
 import NotFound from "./components/NotFound";
+
+const AllRoutes = () => useRoutes([
+  {path:'/',element:<Flight/>},
+  {path:'/home',element:<Flight/>},
+  {path:'/flight',element:<Flight/>},
+  {path:'/city',element:<City/>},
+  {path:'/island',element:<Island/>},
+  {path:'/food',element:<Food/>},
+  {path:'*',element:<NotFound/>},
+
+])
+
 const App = () => {
   return (
     <>
@@ -28,20 +40,7 @@ const App = () => {
           </div>
 
           <div className="content">
-            <Routes>
-            <Route path='/' element={<Flight />}/>
-              <Route path='/flight' element={<Flight />}/>
-
-              <Route path='/city' element={<City />}/>
-
-              <Route path='/island' element={<Island />}/>
-
-              <Route path='/food' element={<Food />}/>
-              <Route path='*' element={<NotFound />}/>
-   
-            </Routes>
-
-
+            <AllRoutes/>
           </div>
 
 
