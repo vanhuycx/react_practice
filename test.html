@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+<html>
 <body>
-  <p>This is a para</p>
-  <p>this is the second para</p>
 
-  <script>
-  const newPara = document.createElement('p')
-  const text = document.createTextNode('Replaced the second para with the new text')
-  newPara.appendChild(text)
+<h2 class="hd2">JavaScript HTML DOM</h2>
+<h2>Hi</h2>
+<p class="hd2">Hello World!</p>
 
-  document.body.replaceChild(newPara,document.getElementsByTagName('p')[1])
-    
-  </script>
+<p>Hello Norway!</p>
+
+
+
+<script>
+const nodeList = document.querySelectorAll('.hd2')
+  
+console.log(nodeList)
+
+</script>
+
 </body>
 </html>
