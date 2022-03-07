@@ -1,26 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 <body>
+  <p>This is a para</p>
+  <p>this is the second para</p>
 
-<h1 id="id01">My First Page</h1>
-<p id="id02"></p>
+  <script>
+  const newPara = document.createElement('p')
+  const text = document.createTextNode('Replaced the second para with the new text')
+  newPara.appendChild(text)
 
-
-<button id="button1">Remove paragraph text</button>
-
-<script>
-
-const head1 =  document.getElementById('id01')
-const p1 = document.getElementById('id02')
-
-p1.innerHTML = head1.childNodes[0].nodeValue
-
-
-document.getElementById('button1').addEventListener('click',()=> {
-  p1.innerHTML=''
-})
-
-
-</script>
-
+  document.body.replaceChild(newPara,document.getElementsByTagName('p')[1])
+    
+  </script>
 </body>
 </html>
