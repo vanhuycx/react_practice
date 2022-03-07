@@ -1,35 +1,23 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title id='title'>JavaScript Practice</title>
-    <link rel="stylesheet" href="">
-  </head>
 <body>
 
-<h2>JavaScript addEventListener()</h2>
+<h1 id="id01">My First Page</h1>
+<p id="id02"></p>
 
-<p>This example demonstrates how to pass parameter values when using the addEventListener() method.</p>
 
-<p>Click the button to perform a calculation.</p>
+<button id="button1">Remove paragraph text</button>
 
-<button id="myBtn">Try it</button>
-
-<div id="divDemo">
-   <p id="paraDemo">Test para</p> 
-
-   <p id="paraDemo2">Test para</p> 
-</div>
 <script>
 
-  const headTag = document.getElementById('title')
+const head1 =  document.getElementById('id01')
+const p1 = document.getElementById('id02')
 
-  console.log(headTag.firstChild.nodeValue)
- 
-  
-
+p1.innerHTML = head1.childNodes[0].nodeValue
 
 
-
+document.getElementById('button1').addEventListener('click',()=> {
+  p1.innerHTML=''
+})
 
 
 </script>
