@@ -2,30 +2,26 @@
 <html>
 <body>
 
+<h2>JavaScript addEventListener()</h2>
+
+<p>This example demonstrates how to pass parameter values when using the addEventListener() method.</p>
+
+<p>Click the button to perform a calculation.</p>
+
+<button id="myBtn">Try it</button>
+
 <p id="demo"></p>
 
-<button onclick="myClock=setInterval(triggerClock,1000)">Start clock</button>
-
-<button onclick="clearInterval(myClock)">Stop clock</button>
-
 <script>
+let p1 = 5;
+let p2 = 7;
+document.getElementById("myBtn").addEventListener("click", (event)=> event.target.style.color='red');
 
-const triggerClock = () => {
-  document.getElementById("demo").innerHTML = "Date : " + Date()
-} 
+document.getElementById('myBtn').addEventListener('mouseenter',(event)=> event.target.style.color = 'yellow')
 
-
-
-
-const stopTimer = () => {
-  clearInterval(myTimer)
-  
-}
-
-
-
+document.getElementById('myBtn').addEventListener('mouseleave',(event)=> event.target.style.color = 'blue')
 
 </script>
 
 </body>
-</html> 
+</html>
