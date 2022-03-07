@@ -67,18 +67,18 @@
 .menu {
   display: flex;
   flex-direction: column;
-  flex: 35%;
-  margin: 0.75em;
+  flex: 30%;
+  margin: 1%;
 }
 .menu a {
   background-color: var(--light-blue-background-color);
-  padding: 0.5em;
-  margin: 0.25em;
+  padding: 5%;
+  margin: 2.5%;
   text-decoration: none;
   color: var(--font-color);
 }
 .content {
-  flex: 65%;
+  flex: 70%;
   margin: 0.75em;
 }
 

@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-
-
-</style>
-</head>
 <body>
 
-<div >
+<h2>JavaScript HTML DOM</h2>
+<img id="image" src="smiley.gif" width="160" height="120">
 
-</div>
-
-
-
+<button onclick='changeImage()'>Change Image</button>
 
 <script>
-  r = document.querySelector(':root')
-  console.log(getComputedStyle(r).getPropertyValue('--blue'))
+  const changeImage = () => {
+    document.getElementById('image').src = 'landscape.jpg'
+
+  }
+
 </script>
+
+<p>The original image was smiley.gif, but the script changed it to landscape.jpg</p>
 
 </body>
 </html>
-
-
