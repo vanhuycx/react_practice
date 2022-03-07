@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title id='title'>JavaScript Practice</title>
+    <link rel="stylesheet" href="">
+  </head>
 <body>
 
 <h2>JavaScript addEventListener()</h2>
@@ -10,16 +14,23 @@
 
 <button id="myBtn">Try it</button>
 
-<p id="demo"></p>
+<div id="divDemo">
+   <p id="paraDemo">Test para</p> 
 
+   <p id="paraDemo2">Test para</p> 
+</div>
 <script>
-let p1 = 5;
-let p2 = 7;
-document.getElementById("myBtn").addEventListener("click", (event)=> event.target.style.color='red');
 
-document.getElementById('myBtn').addEventListener('mouseenter',(event)=> event.target.style.color = 'yellow')
+  const headTag = document.getElementById('title')
 
-document.getElementById('myBtn').addEventListener('mouseleave',(event)=> event.target.style.color = 'blue')
+  console.log(headTag.firstChild.nodeValue)
+ 
+  
+
+
+
+
+
 
 </script>
 
