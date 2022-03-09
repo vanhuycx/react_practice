@@ -5,7 +5,6 @@
 
 <style>
     .tooltip {
-        margin: 20%;
       position: relative;
       display: inline-block;
       border-bottom: 1px dotted black;
@@ -13,6 +12,8 @@
     
     .tooltiptext {
       /* width: 30%; */
+
+
       background-color: black;
        color: #fff;
       text-align: center;
@@ -23,14 +24,14 @@
       position: absolute;
       z-index: 1;
     }
-    
+
 
     </style>
 </head>
 <body>
 
 
-    <p  class="tooltip">
+ <p  class="tooltip">
         Hover me to show tooltip     
     </p>
 
@@ -42,7 +43,24 @@
 
     <p id="content2">
         Hover this aside content  
-    </p>
+    </p> 
+
+ 
+
+
+
+    
+
+
+    <div class="div1">
+
+        <p >
+            Hover this div
+        </p>
+    
+    
+     
+    </div>
 
     
 
@@ -71,20 +89,20 @@
 
                 this[0].appendChild(toolTipSpan)
 
-                confirmButton.addEventListener('click',()=> {
-                    this[0].removeChild(this[0].childNodes[1])
-                })
-
-                
-                  
-                
             },
-                // Leave the mouseleave trigger as blank
+                // Remove tooltip as mouseleave
                 ()=>{
-                    this[0].removeChild(this[0].childNodes[1])
+                    this[0].removeChild(this[0].lastChild)
                 }
             )
         };
+
+        $('.div1').showTooltip({
+            title:'Title:',
+            description:'Tooltip shows description'
+            }
+        )
+
 
 
         $('.tooltip').showTooltip({
@@ -94,13 +112,13 @@
         })
 
         $('.content1').showTooltip({
-            title:'Content1',
-            description:'Description1'
+            title:'Title2',
+            description:'Description2'
         })
 
         $('#content2').showTooltip({
-            title:'Content2',
-            description:'Description2'
+            title:'Title3',
+            description:'Description3'
         })
 
  
