@@ -12,13 +12,12 @@
     }
     
     .tooltiptext {
-      visibility: hidden;
-      width: 120px;
+      /* width: 30%; */
       background-color: black;
-      color: #fff;
+       color: #fff;
       text-align: center;
       border-radius: 6px;
-      padding: 5px 0;
+      padding: 5%; 
     
       /* Position the tooltip */
       position: absolute;
@@ -31,10 +30,9 @@
 <body>
 
 
-    <div class="tooltip">
-        Click on me to show tooltip
-        
-      </div>
+    <p  class="tooltip">
+        Hover me to show tooltip     
+    </p>
 </div>
 
 <script>
@@ -42,29 +40,46 @@
     
         $.fn.showTooltip = function (options) {
             this.hover(()=> {
-                // Set the mouseenter hover
-                const title = document.createElement('h5')
+
+                // console.log(this)
+                
+                // Set the mouseenter effect
+                const title = document.createElement('p')
                 title.innerHTML=options.title
 
                 const description = document.createElement('p')
                 description.innerHTML=options.description
 
-                const div = document.createElement('div')
-                div.appendChild(title)
-                div.appendChild(description)
+                const confirmButton = document.createElement('button')
+                confirmButton.innerHTML='Okay'
 
+                const toolTipSpan = document.createElement('span')
+                // div.setAttribute('style','background-color:red;\
+                //                         color:yellow;width:10%;')
 
+                toolTipSpan.setAttribute('class','tooltiptext') 
 
-                document.body.appendChild(div)
+                
+                toolTipSpan.appendChild(title)
+                toolTipSpan.appendChild(description)
+                toolTipSpan.appendChild(confirmButton)
+
+                this[0].appendChild(toolTipSpan)
+
+                confirmButton.addEventListener('click',()=> {
+                    this[0].removeChild(this[0].childNodes[1])
+                })
+                
             },
-            // Leave the mouseleave trigger as blank
-            ()=>{})
+                // Leave the mouseleave trigger as blank
+                ()=>{}
+            )
         };
 
 
         $('.tooltip').showTooltip({
-            title:'This is a title',
-            description:'Description'
+            title:'Title:',
+            description:'Tooltip shows description'
 
         })
 
