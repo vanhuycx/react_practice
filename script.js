@@ -36,8 +36,8 @@ const renderData = async () => {
     searchBar.addEventListener('input',(event)=>{
         let html =''
         let fileter_drinks = allDrinks.filter((drink) => {
-            return (drink.strDrink.toLowerCase().includes(event.target.value)
-                || drink?.strDrink?.toLowerCase().startsWith(event.target.value))
+            return (drink.strDrink.toLowerCase().includes(event.target.value.trim())
+                || drink?.strDrink?.toLowerCase().trim().startsWith(event.target.value.trim()))
         })
 
         fileter_drinks.forEach((drink) => {
