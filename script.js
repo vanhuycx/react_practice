@@ -14,10 +14,8 @@ const getCockTailData = async () => {
 
 
 const renderData = async () => {
-    const allDrinks = await  getCockTailData()
+    let allDrinks = await  getCockTailData()
     let html = ''
-
-    console.log(allDrinks)
 
     allDrinks.forEach((drink) => {
         let htmlPortion = `
@@ -31,10 +29,31 @@ const renderData = async () => {
     })
     const cocktailContainer = document.querySelectorAll('.cocktail-container')[0]
     cocktailContainer.innerHTML = html
+
+    
+
+    const searchBar = document.querySelectorAll('.search-bar')[0]
+    searchBar.addEventListener('input',(event)=>{
+        let html =''
+        let fileter_drinks = allDrinks.filter((drink) => {
+            return (drink.strDrink.toLowerCase().includes(event.target.value)
+                || drink?.strDrink?.toLowerCase().startsWith(event.target.value))
+        })
+
+        fileter_drinks.forEach((drink) => {
+            let htmlPortion = `
+                            <div class="cocktail">
+                                <h3>${drink.strDrink}</h3>
+                                <img class='cocktail-img' src=${drink.strDrinkThumb} alt="">
+                            </div>
+                                `
+            html += htmlPortion
+        })
+        cocktailContainer.innerHTML = html
+    })
 }
 
 renderData()
-
 
 
 
