@@ -1,128 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .cocktail-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            border: 10px solid rgb(233, 125, 48) ;
+            background-color: rgb(199, 245, 230);
 
-<style>
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      border-bottom: 1px dotted black;
-    }
-    
-    .tooltiptext {
-      /* width: 30%; */
-
-
-      background-color: black;
-       color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 5%; 
-    
-      /* Position the tooltip */
-      position: absolute;
-      z-index: 1;
-    }
-
+        }
+        .cocktail-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+        }
+        .cocktail {
+            margin: 2%;
+            /* flex: 33.33%; */
+            text-align: center;
+            /* border: 0.5em solid red; */
+        }
+        .cocktail-img {
+            width: 12em;
+            height: auto;
+        }
 
     </style>
 </head>
+
 <body>
-
-
- <p  class="tooltip">
-        Hover me to show tooltip     
-    </p>
-
-
-    <p class="content1">
-        Hover this main Content 
-    </p>
-
-
-    <p id="content2">
-        Hover this aside content  
-    </p> 
-
- 
-
-
-
+    <div class="cocktail-wrapper ">
+        <h1>Cocktail Collection</h1>
+        
+        <input type="text"
+                placeholder="Search cocktail...">
     
 
+        <div class="cocktail-container">
+        </div>
 
-    <div class="div1">
-
-        <p >
-            Hover this div
-        </p>
-    
-    
-     
     </div>
-
     
-
-<script>
-    $(document).ready(function(){
-    
-        $.fn.showTooltip = function (options) {
-            this.hover(()=> {
-
-                // Set the mouseenter effect
-                const title = document.createElement('h4')
-                title.innerHTML=options.title
-
-                const description = document.createElement('p')
-                description.innerHTML=options.description
-
-                const toolTipSpan = document.createElement('span')
-                // div.setAttribute('style','background-color:red;\
-                //                         color:yellow;width:10%;')
-
-                toolTipSpan.setAttribute('class','tooltiptext') 
-
-                
-                toolTipSpan.appendChild(title)
-                toolTipSpan.appendChild(description)
-
-                this[0].appendChild(toolTipSpan)
-
-            },
-                // Remove tooltip as mouseleave
-                ()=>{
-                    this[0].removeChild(this[0].lastChild)
-                }
-            )
-        };
-
-        $('.div1').showTooltip({
-            title:'Title:',
-            description:'Tooltip shows description'
-            }
-        )
-
-
-
-        $('.tooltip').showTooltip({
-            title:'Title:',
-            description:'Tooltip shows description'
-
-        })
-
-        $('.content1').showTooltip({
-            title:'Title2',
-            description:'Description2'
-        })
-
-        $('#content2').showTooltip({
-            title:'Title3',
-            description:'Description3'
-        })
-
- 
-    });
-    </script>
 </body>
 </html>
