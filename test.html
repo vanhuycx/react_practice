@@ -2,29 +2,73 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .tooltip {
+        margin: 20%;
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+    
+    .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+    
+
+    </style>
 </head>
 <body>
 
 
-
-
-<a href=""> Hello world</a>
+    <div class="tooltip">
+        Click on me to show tooltip
+        
+      </div>
+</div>
 
 <script>
     $(document).ready(function(){
     
-        $.fn.changeColor = function (option) {
+        $.fn.showTooltip = function (options) {
             this.hover(()=> {
-                $(this).css({'color':option.color,'background-color':option.backgroundColor})
-            })
+                // Set the mouseenter hover
+                const title = document.createElement('h5')
+                title.innerHTML=options.title
+
+                const description = document.createElement('p')
+                description.innerHTML=options.description
+
+                const div = document.createElement('div')
+                div.appendChild(title)
+                div.appendChild(description)
+
+
+
+                document.body.appendChild(div)
+            },
+            // Leave the mouseleave trigger as blank
+            ()=>{})
         };
 
 
-        $('a').changeColor({
-            color:'orange',
-            backgroundColor:'black'
+        $('.tooltip').showTooltip({
+            title:'This is a title',
+            description:'Description'
 
         })
+
+
  
     });
     </script>
