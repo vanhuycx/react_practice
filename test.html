@@ -4,122 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test app</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            border: 5px solid red;
+
+        }
+        .object-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            width: 30%;
+            height: 30%;
+            background-color: rgb(200, 243, 243);
+        }
+        .square-object {
+            width: 30%;
+            height: 30%;
+            background-color: red;
+        }
+        .round-object {
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            background-color: rgb(168, 236, 79);
+        }
+    </style>
 </head>
-<style>
-    * {
-        margin: 0;
-        box-sizing: border-box;
-    }
-    :root{
-        --light-blue: rgb(175, 175, 252);
-        --light-green: rgb(111, 240, 111);
-        --light-red:rgb(253, 151, 151);
-        --light-gray:rgb(238, 236, 236);
-    }
-    .website-container {
-        display: flex;
-        flex-direction: column;
-        /* justify-content: flex-end; */
-        /* align-items: flex-end; */
-        border: 3px solid red;
-        height: 100vh;
-        /* text-align: center; */
-        background-color: var(--light-gray);
-    }
-    .navbar {
-        display: flex;
-        flex: 10%;
-        background-color: var(--light-red);
-    }
-    .navbar-input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 30%;
-    }
-    .input-bar {
-        /* min-width: 50%; */
-        width: 80%;
-        height: 50%;
-    }
-
-    .navbar-buttons {
-        flex: 70%;
-        display: flex;
-        justify-content: flex-start;
-
-    }
-    .navbar-buttons a {
-        text-decoration: none;
-        padding: 2.5%;
-    }
-    .navbar-buttons a:hover {
-        background-color: bisque;
-    }
-    .breadcrumb {
-        display: flex;
-        align-items: flex-end;
-        margin-left: 8%;
-        flex: 8%;
-        background-color: var(--light-gray);
-    }
-
-    .content {
-        flex: 72%;
-        display: flex;
-        flex-direction: column;
-        padding: 2.5%;
-        margin: 0 8% 0 8%;
-        background-color: var(--light-blue);
-    }
-
-    .footer {
-        flex: 10%;
-        text-align: center;
-        background-color: var(--light-gray);
-    } 
-
-</style>
 <body>
-
-    <div class="website-container">
-
-        <div class="navbar">
-            <div class="navbar-input">
-                <input 
-                    class='input-bar'
-                    type="text" 
-                    placeholder="Search...">
-            </div>
-            <div class="navbar-buttons">
-                <a href="">Nav1</a>
-                <a href="">Nav2</a>
-                <a href="">Nav3</a>
-                <a href="">Nav4</a>
-                <a href="">Nav5</a>
-            </div>
+    <div class="container">
+        <div class="object-container">
+            <div class="round-object"></div>
+            <div class="square-object"></div>
             
         </div>
-        <div class="breadcrumb">
-            <div class="breadcrumb-hierarchy">
-                Home / List / App
-            </div>
-        </div>
-        <div class="content">Content</div>
-        <div class="footer"> Design ©2022 Created by Van Huy Pham</div>
 
-        
-       
 
     </div>
-
-
-
-<script>
-
-
-</script>
-    
 </body>
 </html>
