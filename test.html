@@ -11,25 +11,41 @@
         margin: 0;
         box-sizing: border-box;
     }
+    :root{
+        --light-blue: rgb(175, 175, 252);
+        --ligh-green: rgb(111, 240, 111);
+    }
     .website-container {
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        border: 1px solid greenyellow;
+        flex-direction: column;
+        /* justify-content: flex-end; */
+        /* align-items: flex-end; */
+        border: 3px solid red;
         height: 100vh;
+        text-align: center;
 
     }
-    .first-object {
-        width: 20%;
-        height: 20%;
-        border: 2px solid red;
+    .header {
+        flex: 20%;
+        background-color: var(--light-blue);
+    }
+    .content {
+        flex: 60%;
+        background-color: var(--ligh-green);
+    }
+
+    .footer {
+        flex: 20%;
+        background-color: var(--light-blue);
     }
 
 </style>
 <body>
 
     <div class="website-container">
-        <div class="first-object"></div>
+        <div class="header">Header</div>
+        <div class="content">Content</div>
+        <div class="footer">Footer</div>
 
     </div>
 
