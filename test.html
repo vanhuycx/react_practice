@@ -15,37 +15,48 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            border: 5px solid red;
 
         }
         .object-container {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            /* flex-direction: column; */
+            justify-content: center;
             align-items: center;
-            width: 30%;
+            position: relative;
+            width: 15%;
             height: 30%;
             background-color: rgb(200, 243, 243);
         }
-        .square-object {
-            width: 30%;
-            height: 30%;
-            background-color: red;
-        }
         .round-object {
-            width: 30%;
-            height: 30%;
+            position: absolute;
+            top: 33.33%;
+            left: 33.33%;
+            width: 33.33%;
+            height: 33.33%;
             border-radius: 50%;
             background-color: rgb(168, 236, 79);
+            z-index: 1;
         }
+        .square-object {
+            position: absolute;
+            top: 33.33%;
+            left: 33.33%;
+            width: 33.33%;
+            height:33.33%;
+            background-color: red;
+            z-index: 0;
+        }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <div class="object-container">
-            <div class="round-object"></div>
-            <div class="square-object"></div>
-            
+                <div class="square-object"></div>
+                <div class="round-object"></div>
+                 
+                
+                      
         </div>
 
 
