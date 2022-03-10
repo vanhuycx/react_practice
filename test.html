@@ -13,23 +13,49 @@
     }
     :root{
         --light-blue: rgb(175, 175, 252);
-        --ligh-green: rgb(111, 240, 111);
+        --light-green: rgb(111, 240, 111);
         --light-red:rgb(253, 151, 151);
     }
     .website-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         /* justify-content: flex-end; */
         /* align-items: flex-end; */
         border: 3px solid red;
         height: 100vh;
         text-align: center;
     }
-    .header {
-        flex: 10%;
+    .left-section {
+        flex: 20%;
+        background-color: var(--light-green);
+    }
+    .right-section {
+        flex: 80%;
+        display: flex;
+        flex-direction: column;
         background-color: var(--light-blue);
     }
-    .sider-content {
+
+    .content {
+        flex: 80%;
+        background-color: var(--ligh-green);
+    }
+    .header {
+        flex: 10%;
+        background-color: var(--light-red);
+    }
+
+    .content {
+        flex: 80%;
+        background-color: var(--ligh-blue);
+    }
+
+    .footer {
+        flex: 10%;
+        background-color: var(--light-red);
+    } 
+
+    /* .sider-content {
         flex: 80%;
         display: flex;
     }
@@ -37,27 +63,23 @@
         flex: 20%;
         background-color: var(--light-red);
     }
-    .content {
-        flex: 80%;
-        background-color: var(--ligh-green);
-    }
-
-    .footer {
-        flex: 10%;
-        background-color: var(--light-blue);
-    }
+    
+    */
 
 </style>
 <body>
 
     <div class="website-container">
-        <div class="header">Header</div>
-        <div class="sider-content">
-            <div class="sider">Sider</div>
+
+        <div class="left-section">Sider</div>
+ 
+        <div class="right-section">
+            <div class="header">Header</div>
             <div class="content">Content</div>
+            <div class="footer">Footer</div>
         </div>
         
-        <div class="footer">Footer</div>
+       
 
     </div>
 
