@@ -14,6 +14,7 @@
     :root{
         --light-blue: rgb(175, 175, 252);
         --ligh-green: rgb(111, 240, 111);
+        --light-red:rgb(253, 151, 151);
     }
     .website-container {
         display: flex;
@@ -23,19 +24,26 @@
         border: 3px solid red;
         height: 100vh;
         text-align: center;
-
     }
     .header {
-        flex: 20%;
+        flex: 10%;
         background-color: var(--light-blue);
     }
+    .sider-content {
+        flex: 80%;
+        display: flex;
+    }
+    .sider {
+        flex: 20%;
+        background-color: var(--light-red);
+    }
     .content {
-        flex: 60%;
+        flex: 80%;
         background-color: var(--ligh-green);
     }
 
     .footer {
-        flex: 20%;
+        flex: 10%;
         background-color: var(--light-blue);
     }
 
@@ -44,7 +52,11 @@
 
     <div class="website-container">
         <div class="header">Header</div>
-        <div class="content">Content</div>
+        <div class="sider-content">
+            <div class="sider">Sider</div>
+            <div class="content">Content</div>
+        </div>
+        
         <div class="footer">Footer</div>
 
     </div>
