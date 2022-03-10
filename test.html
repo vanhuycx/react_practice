@@ -15,69 +15,98 @@
         --light-blue: rgb(175, 175, 252);
         --light-green: rgb(111, 240, 111);
         --light-red:rgb(253, 151, 151);
+        --light-gray:rgb(238, 236, 236);
     }
     .website-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         /* justify-content: flex-end; */
         /* align-items: flex-end; */
         border: 3px solid red;
         height: 100vh;
-        text-align: center;
+        /* text-align: center; */
+        background-color: var(--light-gray);
     }
-    .left-section {
-        flex: 20%;
-        background-color: var(--light-green);
-    }
-    .right-section {
-        flex: 80%;
+    .navbar {
         display: flex;
-        flex-direction: column;
-        background-color: var(--light-blue);
-    }
-
-    .content {
-        flex: 80%;
-        background-color: var(--ligh-green);
-    }
-    .header {
         flex: 10%;
         background-color: var(--light-red);
     }
+    .navbar-input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 30%;
+    }
+    .input-bar {
+        height: 50%;
+    }
+
+    .navbar-buttons {
+        flex: 70%;
+        display: flex;
+        justify-content: flex-start;
+
+    }
+    .navbar-buttons a {
+        text-decoration: none;
+        padding: 2.5%;
+    }
+    .navbar-buttons a:hover {
+        background-color: bisque;
+    }
+    .breadcrumb {
+        display: flex;
+        align-items: flex-end;
+        margin-left: 8%;
+        flex: 8%;
+        background-color: var(--light-gray);
+    }
 
     .content {
-        flex: 80%;
-        background-color: var(--ligh-blue);
+        flex: 72%;
+        display: flex;
+        flex-direction: column;
+        padding: 2.5%;
+        margin: 0 8% 0 8%;
+        background-color: var(--light-blue);
     }
 
     .footer {
         flex: 10%;
-        background-color: var(--light-red);
+        text-align: center;
+        background-color: var(--light-gray);
     } 
-
-    /* .sider-content {
-        flex: 80%;
-        display: flex;
-    }
-    .sider {
-        flex: 20%;
-        background-color: var(--light-red);
-    }
-    
-    */
 
 </style>
 <body>
 
     <div class="website-container">
 
-        <div class="left-section">Sider</div>
- 
-        <div class="right-section">
-            <div class="header">Header</div>
-            <div class="content">Content</div>
-            <div class="footer">Footer</div>
+        <div class="navbar">
+            <div class="navbar-input">
+                <input 
+                    class='input-bar'
+                    type="text" 
+                    placeholder="Search...">
+            </div>
+            <div class="navbar-buttons">
+                <a href="">Nav1</a>
+                <a href="">Nav2</a>
+                <a href="">Nav3</a>
+                <a href="">Nav4</a>
+                <a href="">Nav5</a>
+            </div>
+            
         </div>
+        <div class="breadcrumb">
+            <div class="breadcrumb-hierarchy">
+                Home / List / App
+            </div>
+        </div>
+        <div class="content">Content</div>
+        <div class="footer"> Design ©2022 Created by Van Huy Pham</div>
+
         
        
 
