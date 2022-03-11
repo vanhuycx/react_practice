@@ -1,50 +1,44 @@
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 .site-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.main-content {
-  width: 50%;
-  display: flex;
   flex-direction: column;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
+  height: 100vh;
+  /* width: 100%; */
 }
-.buttons {
+
+.main-content {
+  border: 1px solid red;
+  /* width: 100%; */
+  height: 100%;
+}
+
+.stages {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 1em;
-}
-.buttons button {
-  font-weight: bolder;
-  width: 10em;
-  padding: 1em;
-  margin: 1em;
-  background-color: rgb(153, 229, 153);
-  border: 0.2em rgb(86, 158, 86) solid;
-}
-.slide-show {
-  width: 100%;
-  border-style: outset;
-  padding: 2em;
-  text-align: center;
+  justify-content: space-evenly;
+  /* padding: 1em; */
+
+  height: 50%;
 }
 
-@media screen and (max-width: 800px) {
-  .buttons button {
-    width: 6em;
-    padding: 1em;
-    margin: 1em;
-  }
+.stages div {
+  border: 1px solid blue;
+  height: 100%;
 }
-
-@media screen and (max-width: 600px) {
-  .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  /* border: 1px solid red; */
+}
+.right-section button {
+  margin: 0 0.5em 0 0.5em;
+}
+.fas,
+.fa {
+  font-size: 1.5em;
 }
