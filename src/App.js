@@ -25,13 +25,15 @@ const App = () => {
 
     if (index===0) {
       document.getElementById('previous-button').setAttribute('disabled',true)
+      document.getElementById('restart-button').setAttribute('disabled',true)
     } else{
       document.getElementById('previous-button').removeAttribute('disabled')
+      document.getElementById('restart-button').removeAttribute('disabled')
     }
-  }, [index])
-  
 
-  console.log(slides.length,index)
+
+  }, [index])
+
 
   return (
     <>

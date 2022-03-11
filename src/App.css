@@ -20,13 +20,16 @@
   padding: 1em;
 }
 .buttons button {
+  font-weight: bolder;
   width: 10em;
   padding: 1em;
   margin: 1em;
+  background-color: rgb(153, 229, 153);
+  border: 0.2em rgb(86, 158, 86) solid;
 }
 .slide-show {
   width: 100%;
-  border: 0.25em solid;
+  border-style: outset;
   padding: 2em;
   text-align: center;
 }
