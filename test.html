@@ -4,60 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Test app</title>
     <style>
         * {
             margin: 0;
             box-sizing: border-box;
         }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        /* .heroWorld {
+            vertical-align: 25px;
+        } */
 
+        #tag {
+            color: blue;
         }
-        .object-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            width: 15%;
-            height: 30%;
-            background-color: rgb(200, 243, 243);
-        }
-        .square-object1 {
-            position: absolute;
-            top: 16.667%;
-            left: 33.33%;
-            width: 33.33%;
-            height: 33.33%;
-            /* border-radius: 50%; */
-            background-color: rgb(168, 236, 79);
-            /* z-index: 1; */
-        }
-        .square-object2 {
-            position: absolute;
-            top: 33.33%;
-            left: 33.33%;
-            width: 33.33%;
-            height:33.33%;
-            background-color: red;
-            /* z-index: 0; */
+        p {
+            pointer-events: none;
+            color:red !important
         }
 
-        .square-object2:hover {
-            z-index: 1;
-        }
-        
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="object-container">
-                <div class="square-object2"></div>
-                <div class="square-object1"></div>            
-        </div>
-    </div>
+    <p id="tag1"></p>
+
+
+    <script src="./script.js"></script>
+
 </body>
 </html>
