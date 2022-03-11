@@ -14,9 +14,12 @@ const App = () => {
   const increaseIndex = () => {
       setIndex(index=>index+1)
   }
-  
+  const buttons = document.getElementsByTagName('button')
 
+  // console.log(buttons.length)
   useEffect(() => {
+   
+
     if (index===slides.length-1) {
       document.getElementById('next-button').setAttribute('disabled',true)
     } else{
@@ -31,8 +34,16 @@ const App = () => {
       document.getElementById('restart-button').removeAttribute('disabled')
     }
 
+    for (let i=0;i<buttons.length;i++){
+      if (!buttons[i].disabled) {
+        buttons[i].style.color='black'
+      } else {
+        buttons[i].style  .color='white'
+      }
+    }
 
-  }, [index])
+
+  }, [index,buttons])
 
 
   return (
