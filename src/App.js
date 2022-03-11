@@ -1,100 +1,56 @@
 import React,{ useState,useEffect } from 'react'
 import './App.css'
-import { articles } from "./data/data";
+import { slides } from "./data/data";
+
 const App = () => {
-  // const articles = articles
+  const [index, setIndex] = useState(0)
 
-  // console.log(articles.slice())
-  const [sortVoteOrder, setSortVoteOrder] = useState('')
-  const [sortDateOrder,setSortDateOrder] = useState('')
-
-  const [availArticles, setAvailArticles] = useState(articles)
-
-  const sortVotes = () => {
-    if (sortVoteOrder==='') {
-      setSortVoteOrder('Descending')
-        const sortedVotes = articles.slice().sort((a,b)=>(b.upvotes-a.upvotes))
-        setAvailArticles(sortedVotes)
-    } else if (sortVoteOrder==='Descending')  {
-      setSortVoteOrder('Ascending')
-        const sortedVotes = articles.slice().sort((a,b)=>(a.upvotes-b.upvotes))
-        setAvailArticles(sortedVotes)
-    } else if (sortVoteOrder==='Ascending') {
-      setSortVoteOrder('')
-        setAvailArticles(articles)
+  const restartIndex = () => {
+      setIndex(0)
     }
+  const decreaseIndex = () => {
+      setIndex(index=>index-1)
   }
-
-  const sortDates = () => {
-    if (sortDateOrder==='') {
-      setSortDateOrder('Descending')
-      const sortedDates = articles.slice().sort((a,b)=>(new Date(b.date)- new Date(a.date)))
-    setAvailArticles(sortedDates)
-  } else if (sortDateOrder==='Descending')  {
-      setSortDateOrder('Ascending')
-      const sortedDates = articles.slice().sort((a,b)=>(new Date(a.date)- new Date(b.date)))
-      setAvailArticles(sortedDates)
-  } else if (sortDateOrder==='Ascending') {
-      setSortDateOrder('')
-      setAvailArticles(articles)
+  const increaseIndex = () => {
+      setIndex(index=>index+1)
   }
+  
 
-}
+  useEffect(() => {
+    if (index===slides.length-1) {
+      document.getElementById('next-button').setAttribute('disabled',true)
+    } else{
+      document.getElementById('next-button').removeAttribute('disabled')
+    }
 
-useEffect(() => {
-  if(sortVoteOrder) {
-    setSortDateOrder('')
-  }
-}, [sortVoteOrder])
+    if (index===0) {
+      document.getElementById('previous-button').setAttribute('disabled',true)
+    } else{
+      document.getElementById('previous-button').removeAttribute('disabled')
+    }
+  }, [index])
+  
 
-useEffect(() => {
-  if(sortDateOrder) {
-    setSortVoteOrder('')
-  }
-}, [sortDateOrder])
-
+  console.log(slides.length,index)
 
   return (
     <>
-    {/* {console.log({sortVoteOrder,sortDateOrder})} */}
-
-    <div className="table-section">
-      <div className="sort-buttons">
-        <button onClick={()=>sortVotes()}>
-        {sortVoteOrder?
-        (sortVoteOrder==='Descending'?'Sort Votes Ascending':'Turn Off Sort Votes'):
-        'Sort Votes Descending'}</button>
-      <button onClick={()=>sortDates()}>{sortDateOrder?
-        (sortDateOrder==='Descending'?'Sort Dates Ascending':'Turn Off Sort Dates'):
-        'Sort Dates Descending'}</button>
-
+    <div className="site-wrapper">
+      <div className="main-content">
+        <div className="buttons">
+          <button id='restart-button' onClick={()=>restartIndex()}>Restart</button>
+          <button id='previous-button' onClick={()=>decreaseIndex()}>Previous</button>
+          <button id='next-button' onClick={()=>increaseIndex()}>Next</button>
+        </div>
+        <div className="slide-show">
+          <h1>{slides[index].title}</h1>
+          <h3>{slides[index].text}</h3>
+        </div>
       </div>
-    
-
-    <table className="articles">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Upvotes</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      {availArticles.map((article)=> {
-        return (
-          <tr>
-          <td>{article.title}</td>
-          <td>{article.upvotes}</td>
-          <td>{article.date}</td>
-        </tr>
-        )
-      })}
-      </tbody>
-    </table>
-
+      
 
     </div>
-    
+   
     </>
 
   ) 
