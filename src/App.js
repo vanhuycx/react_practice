@@ -45,33 +45,31 @@ useEffect(() => {
   if(sortVoteOrder) {
     setSortDateOrder('')
   }
-
-  // console.log({sortVoteOrder,sortDateOrder})
 }, [sortVoteOrder])
-
 
 useEffect(() => {
   if(sortDateOrder) {
     setSortVoteOrder('')
   }
-
- 
 }, [sortDateOrder])
-
-
-
 
 
   return (
     <>
-    {console.log({sortVoteOrder,sortDateOrder})}
-    <button onClick={()=>sortVotes()}>
-      {sortVoteOrder?
-      (sortVoteOrder==='Descending'?'Sort Votes Ascending':'Turn Off Sort Votes'):
-      'Sort Votes Descending'}</button>
-    <button onClick={()=>sortDates()}>{sortDateOrder?
-      (sortDateOrder==='Descending'?'Sort Dates Ascending':'Turn Off Sort Dates'):
-      'Sort Dates Descending'}</button>
+    {/* {console.log({sortVoteOrder,sortDateOrder})} */}
+
+    <div className="table-section">
+      <div className="sort-buttons">
+        <button onClick={()=>sortVotes()}>
+        {sortVoteOrder?
+        (sortVoteOrder==='Descending'?'Sort Votes Ascending':'Turn Off Sort Votes'):
+        'Sort Votes Descending'}</button>
+      <button onClick={()=>sortDates()}>{sortDateOrder?
+        (sortDateOrder==='Descending'?'Sort Dates Ascending':'Turn Off Sort Dates'):
+        'Sort Dates Descending'}</button>
+
+      </div>
+    
 
     <table className="articles">
       <thead>
@@ -91,14 +89,12 @@ useEffect(() => {
         </tr>
         )
       })}
-
       </tbody>
-      
-
-      
-      
-
     </table>
+
+
+    </div>
+    
     </>
 
   ) 

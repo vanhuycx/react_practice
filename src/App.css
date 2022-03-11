@@ -1,12 +1,35 @@
 table {
   border-collapse: collapse;
 }
+.table-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.sort-buttons button {
+  padding: 1em;
+  margin: 1em;
+  border: 2px salmon solid;
+  background-color: rgb(179, 245, 73);
+}
+
+.sort-buttons {
+  padding: 1em;
+}
 
 .articles td,
 th {
+  padding: 1em;
   border: 1px solid;
 }
 
 .articles tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #c6d6ec;
+}
+
+.articles th {
+  background-color: #95b1ee;
 }
