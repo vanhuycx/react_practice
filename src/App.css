@@ -1,116 +1,12 @@
-.App {
-  text-align: center;
+table {
+  border-collapse: collapse;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.articles td,
+th {
+  border: 1px solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-:root {
-  --light-blue-background-color: #4e95f1;
-  --purple-background-color: #aa1189;
-  --dark-blue-background-color: #2217bd;
-  --font-color: #ffffff;
-}
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-}
-.header {
-  padding: 1em;
-  color: var(--font-color);
-  background-color: var(--purple-background-color);
-}
-.main {
-  display: flex;
-}
-
-.section {
-  display: flex;
-  flex: 78%;
-}
-.menu {
-  display: flex;
-  flex-direction: column;
-  flex: 30%;
-  margin: 1%;
-}
-.menu a {
-  background-color: var(--light-blue-background-color);
-  padding: 5%;
-  margin: 2.5%;
-  text-decoration: none;
-  color: var(--font-color);
-}
-.content {
-  flex: 70%;
-  margin: 0.75em;
-}
-
-.aside {
-  flex: 22%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.25em;
-  margin: 0.75em;
-  text-align: center;
-  color: var(--font-color);
-  background-color: var(--light-blue-background-color);
-}
-
-.footer {
-  text-align: center;
-  padding: 2em;
-  color: var(--font-color);
-  background-color: var(--dark-blue-background-color);
-}
-
-/* Tablet mode */
-@media screen and (max-width: 767px) {
-  .main {
-    flex-direction: column;
-  }
-}
-
-/* Phone mode */
-@media screen and (max-width: 600px) {
-  .section {
-    flex-direction: column;
-  }
+.articles tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

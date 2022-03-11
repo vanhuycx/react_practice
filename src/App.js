@@ -1,78 +1,104 @@
 import React,{ useState,useEffect } from 'react'
 import './App.css'
-import {Routes,Route,Link,useRoutes } from "react-router-dom";
-import City from "./components/City";
-import Flight from './components/Flight'
-import Island from './components/Island'
-import Food from './components/Food'
-import NotFound from "./components/NotFound";
-
-const AllRoutes = () => useRoutes([
-  {path:'/',element:<Flight/>},
-  {path:'/home',element:<Flight/>},
-  {path:'/flight',element:<Flight/>},
-  {path:'/city',element:<City/>},
-  {path:'/island',element:<Island/>},
-  {path:'/food',element:<Food/>},
-  {path:'*',element:<NotFound/>},
-
-])
-
+import { articles } from "./data/data";
 const App = () => {
+  // const articles = articles
+
+  // console.log(articles.slice())
+  const [sortVoteOrder, setSortVoteOrder] = useState('')
+  const [sortDateOrder,setSortDateOrder] = useState('')
+
+  const [availArticles, setAvailArticles] = useState(articles)
+
+  const sortVotes = () => {
+    if (sortVoteOrder==='') {
+      setSortVoteOrder('Descending')
+        const sortedVotes = articles.slice().sort((a,b)=>(b.upvotes-a.upvotes))
+        setAvailArticles(sortedVotes)
+    } else if (sortVoteOrder==='Descending')  {
+      setSortVoteOrder('Ascending')
+        const sortedVotes = articles.slice().sort((a,b)=>(a.upvotes-b.upvotes))
+        setAvailArticles(sortedVotes)
+    } else if (sortVoteOrder==='Ascending') {
+      setSortVoteOrder('')
+        setAvailArticles(articles)
+    }
+  }
+
+  const sortDates = () => {
+    if (sortDateOrder==='') {
+      setSortDateOrder('Descending')
+      const sortedDates = articles.slice().sort((a,b)=>(new Date(b.date)- new Date(a.date)))
+    setAvailArticles(sortedDates)
+  } else if (sortDateOrder==='Descending')  {
+      setSortDateOrder('Ascending')
+      const sortedDates = articles.slice().sort((a,b)=>(new Date(a.date)- new Date(b.date)))
+      setAvailArticles(sortedDates)
+  } else if (sortDateOrder==='Ascending') {
+      setSortDateOrder('')
+      setAvailArticles(articles)
+  }
+
+}
+
+useEffect(() => {
+  if(sortVoteOrder) {
+    setSortDateOrder('')
+  }
+
+  // console.log({sortVoteOrder,sortDateOrder})
+}, [sortVoteOrder])
+
+
+useEffect(() => {
+  if(sortDateOrder) {
+    setSortVoteOrder('')
+  }
+
+ 
+}, [sortDateOrder])
+
+
+
+
+
   return (
     <>
+    {console.log({sortVoteOrder,sortDateOrder})}
+    <button onClick={()=>sortVotes()}>
+      {sortVoteOrder?
+      (sortVoteOrder==='Descending'?'Sort Votes Ascending':'Turn Off Sort Votes'):
+      'Sort Votes Descending'}</button>
+    <button onClick={()=>sortDates()}>{sortDateOrder?
+      (sortDateOrder==='Descending'?'Sort Dates Ascending':'Turn Off Sort Dates'):
+      'Sort Dates Descending'}</button>
 
+    <table className="articles">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Upvotes</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      {availArticles.map((article)=> {
+        return (
+          <tr>
+          <td>{article.title}</td>
+          <td>{article.upvotes}</td>
+          <td>{article.date}</td>
+        </tr>
+        )
+      })}
 
-    <div className="app-container">
-      <div className="header">
-        <h1>Chania</h1>
-      </div>
+      </tbody>
+      
 
-      <div className="main">
-        <div className="section">
+      
+      
 
-          <div className="menu">
-            <Link to='/flight'>The Flight</Link>
-            <Link to='/city'>The City</Link>
-            <Link to='/island'>The Island</Link>
-            <Link to='/food'>The Food</Link>
-            
-          </div>
-
-          <div className="content">
-            <AllRoutes/>
-          </div>
-
-
-        </div>
-
-
-        <div className="aside">
-          <div>
-            <h3>What?</h3>
-            <p>Chania is a city on the island of Crete.</p>
-          </div>
-          <div>
-            <h3>Where?</h3>
-            <p>Crete is a Greek island in the Mediterranean Sea.</p>
-          </div>
-          <div>
-            <h3>How?</h3>
-            <p>You can reach Chania airport from all over Europe.</p>
-          </div>
-
-          
-        </div>
-        
-      </div>
-
-      <div className="footer">
-      Resize the browser window to see how the content respond to the resizing.
-        
-      </div>
-    </div>
-    
-    
+    </table>
     </>
 
   ) 
