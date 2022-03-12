@@ -1,29 +1,44 @@
 import React,{ useState,useEffect } from 'react'
 import './App.css'
 import { slides } from "./data/data";
+import { backLog } from "./data/data";
 
-const taskNames = [{'backlog':[]},{'todo':[]},{'ongoing':[]},{'done':[]}]
 
 const App = () => {
-  const [taskName, setTaskName] = useState('Task1')
+  const [backLogTask, setBackLogTask] = useState([])
+  const [index, setIndex] = useState(0)
+  const [taskName, setTaskName] = useState()
+
+  // setAllTaskNames(taskNames)
+  // console.log({allTaskNames})
+  const removeCard = ({id,array}) => {
+    setBackLogTask(array.filter(item=>item['id']!==id))
+    
+  }
+
+  const moveCardRight = () => {
+
+  }
 
 
-  const Card = () => {
+  const Card = ({name,id,array}) => {
     return  (
       <>
       <div className="card">
         <div className="left-section">
-          Task
+          {name}
         </div>
         <div className="right-section">
           <button><i class='fas'>&#xf104;</i></button>
-          <button><i class='fas'>&#xf105;</i></button>
-          <button><i class="fa">&#xf014;</i></button>
+          <button onClick={()=>moveCardRight({id,array})}><i class='fas'>&#xf105;</i></button>
+          <button onClick={()=>removeCard({id,array})}><i class="fa">&#xf014;</i></button>
         </div>
       </div>
       </>
     )
   }
+
+  
 
   return (
     <>
@@ -34,17 +49,26 @@ const App = () => {
       <div className="main-content">
         <div className="new-task">
           <input type="text" placeholder="Enter new task name" onChange={(e)=>setTaskName(e.target.value)}/>
-          <button onClick={()=>taskNames[0]['backlog'].push(taskName)}>Create Task</button>
+          <button onClick={()=>{
+            taskName&&
+            setBackLogTask((backLogTask)=>[...backLogTask,{'id':index,'name':taskName}])
+            setIndex((index)=>index+1)
+          }
+          }>Create Task</button>
+
+          {console.log({backLogTask,index})}
         </div>
 
-        {console.log(taskNames)}
+       
 
 
         <div className="stages">
-          <div className="stage">
+          <div id='backlog' className="stage">
             <h2>Backlog</h2>
-            <Card/>
-            <Card/>
+            {backLogTask.map((item,index,array)=>(
+              item &&
+              <Card name={item.name} id={item.id} array={array} />
+            ))}
 
           </div>
 
