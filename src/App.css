@@ -5,15 +5,18 @@
 .site-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
+  /* width: 100%; */
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 100%;
+  width: 100%;
 }
 
 .stages {
@@ -49,4 +52,10 @@
 button {
   height: 3em;
   margin: 1em;
+}
+
+@media screen and (max-width: 750px) {
+  .stages {
+    flex-direction: column;
+  }
 }
