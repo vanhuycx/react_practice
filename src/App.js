@@ -2,6 +2,7 @@ import React,{ useState,useEffect } from 'react'
 import './App.css'
 import { slides } from "./data/data";
 
+const taskNames = [{'backlog':[]},{'todo':[]},{'ongoing':[]},{'done':[]}]
 
 const App = () => {
   const [taskName, setTaskName] = useState('Task1')
@@ -12,7 +13,7 @@ const App = () => {
       <>
       <div className="card">
         <div className="left-section">
-          {taskName}
+          Task
         </div>
         <div className="right-section">
           <button><i class='fas'>&#xf104;</i></button>
@@ -32,9 +33,11 @@ const App = () => {
 
       <div className="main-content">
         <div className="new-task">
-          <input type="text" placeholder="Enter new task name"/>
-          <button>Create Task</button>
+          <input type="text" placeholder="Enter new task name" onChange={(e)=>setTaskName(e.target.value)}/>
+          <button onClick={()=>taskNames[0]['backlog'].push(taskName)}>Create Task</button>
         </div>
+
+        {console.log(taskNames)}
 
 
         <div className="stages">
@@ -42,25 +45,23 @@ const App = () => {
             <h2>Backlog</h2>
             <Card/>
             <Card/>
-            <Card/>
-            <Card/>
 
           </div>
 
           <div className="stage">
             <h2>To Do</h2>
-            <Card/>
+
           </div>
 
 
           <div className="stage">
             <h2>Ongoing</h2>
-            <Card/>
+
           </div>
 
           <div className="stage">
             <h2>Done</h2>
-            <Card/>
+
           </div>
 
         </div>
