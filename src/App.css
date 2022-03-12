@@ -5,35 +5,37 @@
 .site-wrapper {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
   height: 100vh;
-  /* width: 100%; */
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid red;
-  /* width: 100%; */
   height: 100%;
 }
 
 .stages {
   display: flex;
   justify-content: space-evenly;
-  /* padding: 1em; */
-
-  height: 50%;
+  width: 100%;
 }
 
-.stages div {
+.stage {
+  margin: 1%;
+  flex: 20%;
+  text-align: center;
+  padding: 1em;
   border: 1px solid blue;
-  height: 100%;
 }
+
 .card {
   display: flex;
   justify-content: space-between;
   padding: 1em;
-  /* border: 1px solid red; */
+  margin: 1em;
+  border: 1px solid red;
 }
 .right-section button {
   margin: 0 0.5em 0 0.5em;
@@ -41,4 +43,10 @@
 .fas,
 .fa {
   font-size: 1.5em;
+}
+
+.new-task input,
+button {
+  height: 3em;
+  margin: 1em;
 }

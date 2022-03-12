@@ -32,30 +32,34 @@ const App = () => {
 
       <div className="main-content">
         <div className="new-task">
-          <input type="text" />
+          <input type="text" placeholder="Enter new task name"/>
           <button>Create Task</button>
         </div>
 
 
         <div className="stages">
-          <div>
-            <h3>Backlog</h3>
+          <div className="stage">
+            <h2>Backlog</h2>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+
+          </div>
+
+          <div className="stage">
+            <h2>To Do</h2>
             <Card/>
           </div>
 
-          <div>
-            <h3>To Do</h3>
+
+          <div className="stage">
+            <h2>Ongoing</h2>
             <Card/>
           </div>
 
-
-          <div>
-            <h3>Ongoing</h3>
-            <Card/>
-          </div>
-
-          <div>
-            <h3>Done</h3>
+          <div className="stage">
+            <h2>Done</h2>
             <Card/>
           </div>
 
