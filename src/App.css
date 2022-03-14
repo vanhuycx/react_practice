@@ -2,60 +2,50 @@
   margin: 0;
   box-sizing: border-box;
 }
-.site-wrapper {
+:root {
+  --light-green:rgb(98, 238, 208);
+}
+.nav-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  /* width: 100%; */
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* border: 1px solid red; */
-  height: 100%;
-  width: 100%;
-}
-
-.stages {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.stage {
-  margin: 1%;
-  flex: 20%;
-  text-align: center;
-  padding: 1em;
-  border: 1px solid blue;
-}
-
-.card {
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  margin: 1em;
+  margin: 3%;
+  /* height: 100%; */
   border: 1px solid red;
 }
-.right-section button {
-  margin: 0 0.5em 0 0.5em;
+.web-name {
+  flex: 20%;
 }
-.fas,
-.fa {
-  font-size: 1.5em;
+.web-nav {
+  flex: 60%;
+  display: flex;
+  border: 1px solid red;
+}
+.web-nav a {
+  text-decoration: none;
+  color: black;
+  padding: 0 2% 0 2%;
+}
+.web-signin {
+  flex: 20%;
+  display: flex;
 }
 
-.new-task input,
-button {
-  height: 3em;
-  margin: 1em;
+.web-signin a {
+  text-decoration: none;
 }
 
-@media screen and (max-width: 750px) {
-  .stages {
-    flex-direction: column;
-  }
+.signin {
+  padding: 5%;
+}
+.subscribe {
+  border: 1px solid;
+  padding: 5%;
+}
+/* .subscribe a {
+  padding: 5%;
+} */
+
+.content-container {
+  background-color: rgb(211, 210, 210);
+  padding: 3%;
 }

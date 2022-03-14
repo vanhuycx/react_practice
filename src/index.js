@@ -29,20 +29,6 @@ ChartJS.register(
   Legend
 );
 
-const Calculate = () => {
-  const [first, setfirst] = useState(0)
-
-  return (
-    <>
-    { 
-   <script src="https://cointelegraph.com/news-widget" data-ct-widget-limit="5" data-ct-widget-theme="dark" data-ct-widget-size="small" data-ct-widget-language="en"></script>
-}
-
-    
-    </>
-  )
-
-}
 
 
 ReactDOM.render(
@@ -58,26 +44,4 @@ ReactDOM.render(
 );
 
 
-
-
-const celInput = document.getElementById('celsius')
-const fahInput = document.getElementById('fahrenheit')
-
-      
-celInput.addEventListener('keyup',()=>{
-  if (celInput.value) {
-    fahInput.value = celInput.value*(9/5)+32
-  } else {
-    fahInput.value =''
-  }
-})
-
-fahInput.addEventListener('keyup',()=>{
-  if (fahInput.value) {
-  celInput.value = (fahInput.value - 32)*5/9
-  } else {
-    celInput.value =''
-  }
-
-})
 

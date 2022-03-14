@@ -2,18 +2,47 @@ import React,{ useState,useEffect } from 'react'
 import './App.css'
 
 const App = () => {
-  const [celsius, setCelsius] = useState(0)
-  const [fahrenheit, setFahrenheit] = useState(0)
-  
 
   return (
     <>
-    <h1>Celcius</h1>
-    <input id='celsius' value={celsius}   onChange={(e)=>setCelsius(e.target.value)} type="text" />
+    <div className="web-container">
+      <div className="nav-container">
 
-    <h1>Fahrenheit</h1> 
-    <input id='fahrenheit' value={fahrenheit} onChange={(e)=>setFahrenheit(e.target.value)}  type="text" />
+        <div className="web-name">
+          <div><h1>MIT</h1></div> 
+          <div><h1>Technology</h1></div>
+          <div><h1>Review</h1></div>
 
+        </div>
+
+        <div className="web-nav">
+          <a href="/">Featured</a>
+          <a href="/">Topics</a>
+          <a href="/">Newsletters</a>
+          <a href="/">Event</a>
+          <a href="/">PodCast</a>
+        </div>
+
+        <div className="web-signin">
+          <div className="signin">
+            <a href="/">Sign in </a>
+          </div>
+          <div className="subscribe">
+            <a href="/"> Subscribe </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="content-container">
+        <div className="content">
+          Hello world
+        </div>
+
+      </div>
+
+    </div>
+  
     </>
   ) 
 };
