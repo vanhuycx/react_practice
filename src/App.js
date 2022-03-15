@@ -5,6 +5,9 @@ const App = () => {
 
   const myFunction = (x)=> {
     document.getElementsByClassName('container')[0].classList.toggle("change")
+
+
+    // x.classList.toggle('hello')
   }
 
   return (
@@ -16,21 +19,23 @@ const App = () => {
 
       </div>
 
-      <div className="container" onClick={()=>myFunction(this)}>
-  <div className="bar1"></div>
-  <div className="bar2"></div>
-  <div className="bar3"></div>
-      </div>
+      
 
     <div className="web-container">
       
 
       <div className="nav-container">
 
+      <div className="container" onClick={()=>myFunction()}>
+        <div className="bar1"></div>
+        <div className="bar2"></div>
+        <div className="bar3"></div>
+      </div>
+
         <div className="web-name">
-          <div><h1>MIT</h1></div> 
-          <div><h1>Technology</h1></div>
-          <div><h1>Review</h1></div>
+          <div>MIT</div> 
+          <div>Technology</div>
+          <div>Review</div>
 
         </div>
 
