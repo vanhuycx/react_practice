@@ -1,74 +1,57 @@
-import React,{ useState,useEffect } from 'react'
+import React,{ useState,useEffect,useCallback } from 'react'
 import './App.css'
+import { useGetCryptoQuery } from "./api/cryptoApi";
 
 const App = () => {
+  
+  const [sortOrder, setSortOrder] = useState('smallest')
 
-  const myFunction = (x)=> {
-    document.getElementsByClassName('container')[0].classList.toggle("change")
+  const {data:cryptos} = useGetCryptoQuery()
+  console.log({cryptos})
+  
+  const [cryptoArray, setCryptoArray] = useState()
 
+  const sortCryptos = (sortOrder) => {
 
-    // x.classList.toggle('hello')
+    if (sortOrder==='smallest'){
+      setCryptoArray(cryptos?.slice().sort((a,b)=>a.current_price-b.current_price))
+    } else {
+      setCryptoArray(cryptos?.slice().sort((a,b)=>b.current_price-a.current_price))
+    }
+
   }
+
+
+  useEffect(() => {
+   
+    sortCryptos(sortOrder)
+    
+  }, [sortOrder,cryptos])
+  
+
+
 
   return (
     <>
-    <div className="overlay">
-        <div className="content">
-          Hi there
-        </div>
+    <h1>Sort order: {sortOrder}</h1>
+    <select defaultValue={'latest'} onChange={(e)=>setSortOrder(e.target.value)}>
+      <option value="smallest">Smallest to Biggest</option>
+      <option value="biggest">Biggest to Smallest</option>
+    </select>
 
-      </div>
-
+    {cryptoArray?.map(coin=> (
+      <>  
+      <h1>{coin.id}</h1>  
+      <p>{coin.current_price}</p>
       
+      </>
+    )
 
-    <div className="web-container">
-      
+    )}
 
-      <div className="nav-container">
+    
 
-      <div className="container" onClick={()=>myFunction()}>
-        <div className="bar1"></div>
-        <div className="bar2"></div>
-        <div className="bar3"></div>
-      </div>
 
-        <div className="web-name">
-          <div>MIT</div> 
-          <div>Technology</div>
-          <div>Review</div>
-
-        </div>
-
-        <div className="web-nav">
-          <a href="/">Featured</a>
-          <a href="/">Topics</a>
-          <a href="/">Newsletters</a>
-          <a href="/">Events</a>
-          <a href="/">PodCasts</a>
-        </div>
-
-        <div className="web-signin">
-          <div className="signin">
-            <a href="/">Sign in </a>
-          </div>
-          <div className="subscribe">
-            <a href="/"> Subscribe </a>
-          </div>
-        </div>
-
-      </div>
-
-      
-
-      <div className="content-container">
-        <div className="content">
-          Hello world
-        </div>
-
-      </div>
-
-    </div>
-  
     </>
   ) 
 };
