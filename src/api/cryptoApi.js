@@ -8,7 +8,8 @@ export const cryptoApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl:baseUrl}),
     endpoints: (builder)=> ({
         getCrypto: builder.query({
-            query:()=> ({url:`coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`})
+            query:({price_change_percentage})=> ({url:`coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=${price_change_percentage}`})
+            // 1h%2C24h%2C7d
         })
     }),
     //   prepareHeaders: (headers, { getState }) => {

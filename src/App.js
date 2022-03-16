@@ -6,40 +6,29 @@ const App = () => {
   
   const [sortOrder, setSortOrder] = useState('smallest')
 
-  const {data:cryptos} = useGetCryptoQuery()
-  console.log({cryptos})
-  
-  const [cryptoArray, setCryptoArray] = useState()
-
-  const sortCryptos = (sortOrder) => {
-
-    if (sortOrder==='smallest'){
-      setCryptoArray(cryptos?.slice().sort((a,b)=>a.current_price-b.current_price))
-    } else {
-      setCryptoArray(cryptos?.slice().sort((a,b)=>b.current_price-a.current_price))
-    }
-
-  }
+  const {data:cryptos} = useGetCryptoQuery({price_change_percentage:'1h,24h,7d',pollingInterval:30000})
 
 
-  useEffect(() => {
-   
-    sortCryptos(sortOrder)
-    
-  }, [sortOrder,cryptos])
-  
+  const sortedCryptos = cryptos?.slice().sort((a,b) => (
+    sortOrder==='smallest'?
+    a.current_price-b.current_price:
+    (sortOrder==='biggesst'&&b.current_price-a.current_price)
+  ))
+
+  console.log({sortedCryptos})
+ 
 
 
 
   return (
     <>
     <h1>Sort order: {sortOrder}</h1>
-    <select defaultValue={'latest'} onChange={(e)=>setSortOrder(e.target.value)}>
+    <select defaultValue={'latest'} onChange={(event)=>setSortOrder(event.target.value)}>
       <option value="smallest">Smallest to Biggest</option>
       <option value="biggest">Biggest to Smallest</option>
     </select>
 
-    {cryptoArray?.map(coin=> (
+    {sortedCryptos?.map(coin=> (
       <>  
       <h1>{coin.id}</h1>  
       <p>{coin.current_price}</p>
