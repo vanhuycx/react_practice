@@ -1,22 +1,42 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 const App = () => {
-  const [arrayKey, setArrayKey] = useState(0);
+  const [color, setColor] = useState(false);
 
-  const [arrayOfObject, setArrayOfObject] = useState({});
+  useEffect(() => {
+    document
+      .getElementById('input1')
+      .addEventListener(
+        'keydown',
+        () => (document.body.style.backgroundColor = 'red')
+      );
+    document
+      .getElementById('input1')
+      .addEventListener(
+        'keyup',
+        () => (document.body.style.backgroundColor = 'white')
+      );
 
-  console.log(arrayOfObject);
+    return () => {
+      document
+        .getElementById('input1')
+        .removeEventListener(
+          'keydown',
+          (document.body.style.backgroundColor = 'red')
+        );
+      document
+        .getElementById('input1')
+        .removeEventListener(
+          'keup',
+          (document.body.style.backgroundColor = 'white')
+        );
+    };
+  }, [color]);
+
   return (
     <>
-      <input type='text' onChange={(e) => setArrayKey(e.target.value)} />
-
-      <button
-        onClick={() =>
-          setArrayOfObject({ ...arrayOfObject, [arrayKey]: [12, 3, 4] })
-        }
-      >
-        Click
-      </button>
+      <input id='input1' type='text' />
+      <button onClick={() => setColor(!color)}>Click to change color</button>
     </>
   );
 };
