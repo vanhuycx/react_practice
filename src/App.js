@@ -4,42 +4,17 @@ import { useGetCryptoQuery } from "./api/cryptoApi";
 
 const App = () => {
   
-  const [sortOrder, setSortOrder] = useState('smallest')
+  const array1 =  [1,2,3,4]
 
-  const {data:cryptos} = useGetCryptoQuery({price_change_percentage:'1h,24h,7d',pollingInterval:30000})
+  const [numbe1,...number2] = array1
 
-
-  const sortedCryptos = cryptos?.slice().sort((a,b) => (
-    sortOrder==='smallest'?
-    a.current_price-b.current_price:
-    (sortOrder==='biggesst'&&b.current_price-a.current_price)
-  ))
-
-  console.log({sortedCryptos})
- 
+  
 
 
 
   return (
     <>
-    <h1>Sort order: {sortOrder}</h1>
-    <select defaultValue={'latest'} onChange={(event)=>setSortOrder(event.target.value)}>
-      <option value="smallest">Smallest to Biggest</option>
-      <option value="biggest">Biggest to Smallest</option>
-    </select>
-
-    {sortedCryptos?.map(coin=> (
-      <>  
-      <h1>{coin.id}</h1>  
-      <p>{coin.current_price}</p>
-      
-      </>
-    )
-
-    )}
-
-    
-
+  <p>{' ' + number2}</p>
 
     </>
   ) 
