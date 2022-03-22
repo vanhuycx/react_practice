@@ -1,23 +1,38 @@
-import React, { useState, useEffect, useCallback } from "react";
-import "./App.css";
-import { useGetCryptoQuery } from "./api/cryptoApi";
-import "./App.scss";
+import React, { useState, useEffect, useCallback } from 'react';
+import { memo } from 'react';
+import './App.css';
+import { useGetCryptoQuery } from './api/cryptoApi';
+import './App.scss';
 
-const App = () => {
-  const array1 = [1, 2, 3, 4, 5];
+const Todos = ({ todos }) => {
+  console.log('child rendered');
   return (
     <>
-      <h1>
-        Hello{" "}
-        {array1.map((number) => {
-          return console.log(number);
-        })}
-      </h1>
+      <h2>My Todos</h2>
+      {todos.map((todo, index) => {
+        return <p key={index}>{todo}</p>;
+      })}
+    </>
+  );
+};
+const MemoizedTodos = memo(Todos)
 
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState(['todo 1', 'todo 2']);
+
+  const increment = () => {
+    setCount((c) => c + 1);
+  };
+
+  return (
+    <>
+      <MemoizedTodos todos={todos} />
+
+      <hr />
       <div>
-        <div>
-          <p></p>
-        </div>
+        Count: {count}
+        <button onClick={increment}>+</button>
       </div>
     </>
   );
