@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 import { Provider } from "react-redux";
-import store from './api/store'
+import store from "./api/store";
 import { BrowserRouter } from "react-router-dom";
 import {
-  LineController, LineElement,
+  LineController,
+  LineElement,
   PointElement,
   Chart as ChartJS,
   CategoryScale,
@@ -15,10 +16,11 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJS.register(
-  LineController, LineElement,
+  LineController,
+  LineElement,
   PointElement,
   CategoryScale,
   LinearScale,
@@ -28,19 +30,14 @@ ChartJS.register(
   Legend
 );
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-      <App />
-      {/* <Calculate/> */}
+        <App />
+        {/* <Calculate/> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-
-
