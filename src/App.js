@@ -20,7 +20,6 @@ const MemoizedTodos = memo(Todos);
 const App = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState(['todo 1', 'todo 2']);
-
   const [inputTodo, setInputTodo] = useState();
 
   const increment = () => {
@@ -31,7 +30,13 @@ const App = () => {
     <>
       <MemoizedTodos todos={todos} />
       <input type='text' onChange={(e) => setInputTodo(e.target.value)} />
-      <button onClick={() => setTodos((values) => [...values, inputTodo])}>
+      <button
+        onClick={() =>
+          inputTodo &&
+          !todos.includes(inputTodo) &&
+          setTodos([...todos, inputTodo])
+        }
+      >
         Add todo
       </button>
 
