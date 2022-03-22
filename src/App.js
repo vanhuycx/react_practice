@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { memo } from 'react';
-import './App.css';
-import { useGetCryptoQuery } from './api/cryptoApi';
-import './App.scss';
 
 const App = () => {
-  const [arrayOfObject, setArrayOfObject] = useState([{}]);
+  const [arrayKey, setArrayKey] = useState(0);
+
+  const [arrayOfObject, setArrayOfObject] = useState({});
+
   console.log(arrayOfObject);
   return (
     <>
+      <input type='text' onChange={(e) => setArrayKey(e.target.value)} />
+
       <button
         onClick={() =>
-          setArrayOfObject([...arrayOfObject, { 1: 'hello', 2: 'hi' }])
+          setArrayOfObject({ ...arrayOfObject, [arrayKey]: [12, 3, 4] })
         }
       >
         Click
