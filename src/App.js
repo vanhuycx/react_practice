@@ -5,10 +5,12 @@ import React, {
   useContext,
   createContext,
 } from 'react';
+import Component5 from './Component5';
+
 
 const UserContext = createContext();
 
-const Component2 = ({ user }) => {
+const Component2 = () => {
   return (
     <>
       <h1>Component 2</h1>
@@ -30,21 +32,12 @@ function Component4() {
   return (
     <>
       <h1>Component 4</h1>
-      <Component5 />
+      <Component5 UserContext={UserContext} />
     </>
   );
 }
 
-function Component5() {
-  const user = useContext(UserContext);
 
-  return (
-    <>
-      <h1>Component 5</h1>
-      <h2>{`Hello ${user} again!`}</h2>
-    </>
-  );
-}
 
 const App = () => {
   const [user, setUser] = useState('Van Pham');
@@ -52,7 +45,7 @@ const App = () => {
   return (
     <UserContext.Provider value={user}>
       <h1>Hello {user}</h1>
-      <Component2 user={user} />
+      <Component2 />
     </UserContext.Provider>
   );
 };
