@@ -1,43 +1,59 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+  createContext,
+} from 'react';
 
-const App = () => {
-  const [color, setColor] = useState(false);
+const UserContext = createContext();
 
-  useEffect(() => {
-    document
-      .getElementById('input1')
-      .addEventListener(
-        'keydown',
-        () => (document.body.style.backgroundColor = 'red')
-      );
-    document
-      .getElementById('input1')
-      .addEventListener(
-        'keyup',
-        () => (document.body.style.backgroundColor = 'white')
-      );
+const Component2 = ({ user }) => {
+  return (
+    <>
+      <h1>Component 2</h1>
+      <Component3 />
+    </>
+  );
+};
 
-    return () => {
-      document
-        .getElementById('input1')
-        .removeEventListener(
-          'keydown',
-          (document.body.style.backgroundColor = 'red')
-        );
-      document
-        .getElementById('input1')
-        .removeEventListener(
-          'keup',
-          (document.body.style.backgroundColor = 'white')
-        );
-    };
-  }, [color]);
+function Component3() {
+  return (
+    <>
+      <h1>Component 3</h1>
+      <Component4 />
+    </>
+  );
+}
+
+function Component4() {
+  return (
+    <>
+      <h1>Component 4</h1>
+      <Component5 />
+    </>
+  );
+}
+
+function Component5() {
+  const user = useContext(UserContext);
 
   return (
     <>
-      <input id='input1' type='text' />
-      <button onClick={() => setColor(!color)}>Click to change color</button>
+      <h1>Component 5</h1>
+      <h2>{`Hello ${user} again!`}</h2>
     </>
+  );
+}
+
+const App = () => {
+  const [user, setUser] = useState('Van Pham');
+
+  return (
+    <UserContext.Provider value={user}>
+      <h1>Hello {user}</h1>
+      <Component2 user={user} />
+    </UserContext.Provider>
   );
 };
 
