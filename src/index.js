@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
@@ -38,7 +39,6 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
         <App />
-        {/* <Calculate/> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

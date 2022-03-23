@@ -1,52 +1,19 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useContext,
-  createContext,
-} from 'react';
-import Component5 from './Component5';
-
-
-const UserContext = createContext();
-
-const Component2 = () => {
-  return (
-    <>
-      <h1>Component 2</h1>
-      <Component3 />
-    </>
-  );
-};
-
-function Component3() {
-  return (
-    <>
-      <h1>Component 3</h1>
-      <Component4 />
-    </>
-  );
-}
-
-function Component4() {
-  return (
-    <>
-      <h1>Component 4</h1>
-      <Component5 UserContext={UserContext} />
-    </>
-  );
-}
-
-
+import React, { useRef, useState, useEffect } from 'react';
 
 const App = () => {
-  const [user, setUser] = useState('Van Pham');
+  const [inputValue, setInputValue] = useState();
+  const count = useRef(0);
+
+  useEffect(() => {
+    count.current = count.current + 1;
+  });
 
   return (
-    <UserContext.Provider value={user}>
-      <h1>Hello {user}</h1>
-      <Component2 />
-    </UserContext.Provider>
+    <>
+      <p>Enter something:</p>
+      <input type='text' onChange={(e) => setInputValue(e.target.value)} />
+      <p>The app renders: {count.current} time(s)</p>
+    </>
   );
 };
 
