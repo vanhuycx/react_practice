@@ -13,24 +13,17 @@ const data = [
   { year: '1999', value: 13 },
 ];
 
-const config = {
-  data,
-  xField: 'year',
-  yField: 'value',
-  point: {
-    shape: 'diamond',
-  },
-};
-
 const App = () => {
-  const { data: cryptos } = useGetCryptoQuery();
+  const { data: cryptos, isSuccess } = useGetCryptoQuery();
 
-  console.log(cryptos);
-  return (
-    <>
-      <Line {...config} />
-    </>
-  );
+  console.log(isSuccess);
+  const config = {
+    data: cryptos,
+    xField: 'symbol',
+    yField: 'price_change_percentage_1h_in_currency',
+  };
+
+  return <>{isSuccess && <Line {...config} />}</>;
 };
 
 export default App;
